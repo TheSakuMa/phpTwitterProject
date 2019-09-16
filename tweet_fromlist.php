@@ -22,7 +22,7 @@ try {
   $connection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
 
   $statuses = $connection->post('statuses/update', [
-    // このままだと、直近のものと重複したツイートはエラーとなるので注意
+    // このままだと、直近数件のものと重複したツイートはエラーとなるので注意
     "status" => $message
   ]);
 

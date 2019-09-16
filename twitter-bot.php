@@ -2,15 +2,16 @@
 // OAuthスクリプトの読み込み
 require "vendor/autoload.php";
 use Abraham\TwitterOAuth\TwitterOAuth;
+require_once 'config.php';
 
 // Consumer key
-$consumer_key = "fFo7i2mbcXaoM4ycimzmh6s8y";
+$consumer_key = API_KEY;
 // Consumer secret
-$consumer_secret = "lHcCROz5AGsKQDmNa9IZHIsUm4E0iLakxEh6BOOt5hcaYvuji3";
+$consumer_secret = API_SECRET;
 // Access token
-$access_token = "1166169015313502208-QrFuDdzOgI5mG8SFZHZHkPQI4VIpsu";
+$access_token = ACCESS_TOKEN;
 // Access token secret
-$access_token_secret = "E3mm0EFw0DoQn3hwE39HNj4LvxYFhGIw38auQLTbgGc4M";
+$access_token_secret = ACCESS_SECRET;
 
 // おまじない
 $header = 'Content-Type: text/plain; charset=utf-8';
@@ -22,7 +23,7 @@ try {
   $connection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
   // ツイートする
   $res = $connection->post('statuses/update', [
-    'status' => 'やばい'
+    'status' => '強い'
   ]);
   // おまじない
   header($header, true, 200);
