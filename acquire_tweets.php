@@ -3,12 +3,12 @@
 require "vendor/autoload.php";
 use Abraham\TwitterOAuth\TwitterOAuth;
 $words = htmlspecialchars($_GET['words']);
-require_once('config.php');
+require_once 'config.php';
 
 // Consumer key
-$cosumer_key = API_KEY;
+$consumer_key = API_KEY;
 // Consumer secret
-$cosumer_secret = API_SECRET;
+$consumer_secret = API_SECRET;
 // Access token
 $access_token = ACCESS_TOKEN;
 // Access token secret
@@ -17,7 +17,7 @@ $access_token_secret = ACCESS_SECRET;
 // おまじない
 $header = 'Content-Type: text/plain; charset=utf-8';
 
-$connection = new TwitterOAuth($cosumer_key, $cosumer_secret, $access_token, $access_token_secret);
+$connection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
 // ツイート取得
 /**
  * q: 検索キーワード
