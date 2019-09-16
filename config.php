@@ -1,5 +1,5 @@
 <?php
-define('API_KEY', '');
-define('API_SECRET', '');
-define('ACCESS_TOKEN', '');
-define('ACCESS_SECRET', '');
+define('API_KEY', 'fFo7i2mbcXaoM4ycimzmh6s8y');
+define('API_SECRET', 'lHcCROz5AGsKQDmNa9IZHIsUm4E0iLakxEh6BOOt5hcaYvuji3');
+define('ACCESS_TOKEN', '1166169015313502208-QrFuDdzOgI5mG8SFZHZHkPQI4VIpsu');
+define('ACCESS_SECRET', 'E3mm0EFw0DoQn3hwE39HNj4LvxYFhGIw38auQLTbgGc4M');
