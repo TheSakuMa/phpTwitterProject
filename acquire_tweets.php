@@ -15,7 +15,7 @@ $access_token = ACCESS_TOKEN;
 $access_token_secret = ACCESS_SECRET;
 
 // おまじない
-$header = 'Content-Type: text/plain; charset=utf-8';
+$header = 'Content-Type: text/plain; charset=utf8mb4';
 
 $connection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
 // ツイート取得
@@ -24,8 +24,10 @@ $connection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $
  * result_type: 取得ツイートの種類
  * count: 取得ツイート数
  */
-$tweet_params = array('q' => $words, 'result_type' => 'recent', 'count' => '10');
-$tweets = $connection->get('search/tweets', $tweet_params)->statuses;
+if ($words != "") {
+  $tweet_params = array('q' => $words, 'result_type' => 'recent', 'count' => '10');
+  $tweets = $connection->get('search/tweets', $tweet_params)->statuses;
+}
 
 /* 
   echo "<h2>取得したツイート情報一覧</h2>";
@@ -40,6 +42,7 @@ $tweets = $connection->get('search/tweets', $tweet_params)->statuses;
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+    <meta charset="utf-8">
     <title>ツイートを取得する</title>
   </head>
   <body>
@@ -47,9 +50,11 @@ $tweets = $connection->get('search/tweets', $tweet_params)->statuses;
       <input type="text" name="words">
       <input type="submit" value="検索">
     </form>
-    <div>
+    <!-- 検索ワードが "" (空文字)のとき以外に表示させる -->
+    <?php if ($words != "") { ?>
+      <?php echo "<div>" ?>
       <?php echo "<h2>取得したツイート本文</h2>" ?>
-      <?php 
+      <?php
         for($i = 0; $i < 10; $i++) {
           $st = $tweets[$i];
           $user = $st->user;
@@ -57,6 +62,7 @@ $tweets = $connection->get('search/tweets', $tweet_params)->statuses;
           echo "<p>$st->text</p><br>";
         }
       ?>
-    </div>
+      <?php echo "</div>" ?>
+    <?php } ?>
   </body>
 </html>

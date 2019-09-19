@@ -23,7 +23,7 @@ try {
   $connection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
   // ツイートする
   $res = $connection->post('statuses/update', [
-    'status' => '強い'
+    'status' => 'Hello!!!'
   ]);
   // おまじない
   header($header, true, 200);
